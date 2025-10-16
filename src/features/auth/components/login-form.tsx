@@ -24,6 +24,7 @@ import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
 import { authClient } from "~/lib/auth.client";
 import { toast } from "sonner";
+import Image from "next/image";
 
 const loginSchema = z.object({
   email: z.email("Invalid email address"),
@@ -54,7 +55,7 @@ export function LoginForm() {
         onError: (ctx) => {
           toast.error(ctx.error.message);
         },
-      },
+      }
     );
   };
 
@@ -77,6 +78,12 @@ export function LoginForm() {
                     type="button"
                     disabled={isPending}
                   >
+                    <Image
+                      src="/images/github.svg"
+                      alt="github"
+                      width={20}
+                      height={20}
+                    />
                     Continue with GitHub
                   </Button>
                   <Button
@@ -85,6 +92,12 @@ export function LoginForm() {
                     type="button"
                     disabled={isPending}
                   >
+                    <Image
+                      src="/images/google.svg"
+                      alt="google"
+                      width={20}
+                      height={20}
+                    />
                     Continue with Google
                   </Button>
                 </div>
