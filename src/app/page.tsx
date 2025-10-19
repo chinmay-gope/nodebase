@@ -13,7 +13,7 @@ export default function Home() {
       onSuccess: ({ message }) => {
         toast.success(message);
       },
-    })
+    }),
   );
 
   const create = useMutation(
@@ -21,7 +21,7 @@ export default function Home() {
       onSuccess: ({ message }) => {
         toast.success(message);
       },
-    })
+    }),
   );
 
   return (
