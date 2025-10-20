@@ -9,7 +9,7 @@ interface Props {
 const WorkflowPage = async ({ params }: Props) => {
   await requireAuth();
   const { workflowId } = await params;
-  return <div>Wroflow id: {workflowId}</div>;
+  return <div>Workflow id: {workflowId}</div>;
 };
 
 export default WorkflowPage;

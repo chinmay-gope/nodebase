@@ -1,10 +1,13 @@
 "use client";
 
-import z from "zod";
-import Link from "next/link";
-import { useForm } from "react-hook-form";
-import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+import z from "zod";
+import { Button } from "~/components/ui/button";
 import {
   Card,
   CardContent,
@@ -20,11 +23,8 @@ import {
   FormLabel,
   FormMessage,
 } from "~/components/ui/form";
-import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
 import { authClient } from "~/lib/auth.client";
-import { toast } from "sonner";
-import Image from "next/image";
 
 const loginSchema = z.object({
   email: z.email("Invalid email address"),
