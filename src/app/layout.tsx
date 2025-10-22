@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 import "./globals.css";
 
 import { Toaster } from "~/components/ui/sonner";
@@ -24,8 +25,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={`antialiased ${font.className}`}>
         <TRPCReactProvider>
-          {children}
-          <Toaster richColors theme="light" />
+          <NuqsAdapter>
+            {children}
+            <Toaster richColors theme="light" />
+          </NuqsAdapter>
         </TRPCReactProvider>
       </body>
     </html>

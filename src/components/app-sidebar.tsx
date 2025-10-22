@@ -15,7 +15,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "~/components/ui/sidebar";
-import { menu_items } from "~/constants";
+import { menu_items } from "~/config/constants";
 import { useHasActiveSubscription } from "~/features/subscriptions/hooks/use-subscription";
 import { authClient } from "~/lib/auth.client";
 
