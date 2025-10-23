@@ -1,9 +1,9 @@
 "use client";
 import { useMutation, useQuery } from "@tanstack/react-query";
+import { toast } from "sonner";
+import { Button } from "~/components/ui/button";
 import { useTRPC } from "~/trpc/client";
 import { LogoutBtn } from "./logout";
-import { Button } from "~/components/ui/button";
-import { toast } from "sonner";
 export default function Home() {
   const trpc = useTRPC();
   const { data } = useQuery(trpc.getWorkflows.queryOptions());
@@ -13,7 +13,7 @@ export default function Home() {
       onSuccess: ({ message }) => {
         toast.success(message);
       },
-    })
+    }),
   );
 
   const create = useMutation(
@@ -21,7 +21,7 @@ export default function Home() {
       onSuccess: ({ message }) => {
         toast.success(message);
       },
-    })
+    }),
   );
 
   return (

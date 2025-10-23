@@ -1,8 +1,8 @@
-import { inngest } from "./client";
+import { createAnthropic } from "@ai-sdk/anthropic";
 import { createGoogleGenerativeAI } from "@ai-sdk/google";
 import { createOpenAI } from "@ai-sdk/openai";
-import { createAnthropic } from "@ai-sdk/anthropic";
 import { generateText } from "ai";
+import { inngest } from "./client";
 
 const google = createGoogleGenerativeAI();
 const openai = createOpenAI();
@@ -10,7 +10,7 @@ const anthropic = createAnthropic();
 export const execute = inngest.createFunction(
   { id: "execute-ai" },
   { event: "execute/ai" },
-  async ({  step }) => {
+  async ({ step }) => {
     await step.sleep("pretend-wait", "5s");
 
     const { steps: geminiSteps } = await step.ai.wrap(
@@ -21,7 +21,12 @@ export const execute = inngest.createFunction(
         system:
           "You are a helpful assistant that helps create AI generated content.",
         prompt: "What is 2+2?",
-      }
+        experimental_telemetry: {
+          isEnabled: true,
+          recordInputs: true,
+          recordOutputs: true,
+        },
+      },
     );
     const { steps: openaiSteps } = await step.ai.wrap(
       "openai-generate-text",
@@ -31,7 +36,12 @@ export const execute = inngest.createFunction(
         system:
           "You are a helpful assistant that helps create AI generated content.",
         prompt: "What is 2+2?",
-      }
+        experimental_telemetry: {
+          isEnabled: true,
+          recordInputs: true,
+          recordOutputs: true,
+        },
+      },
     );
     const { steps: anthropicSteps } = await step.ai.wrap(
       "anthropic-generate-text",
@@ -41,12 +51,17 @@ export const execute = inngest.createFunction(
         system:
           "You are a helpful assistant that helps create AI generated content.",
         prompt: "What is 2+2?",
-      }
+        experimental_telemetry: {
+          isEnabled: true,
+          recordInputs: true,
+          recordOutputs: true,
+        },
+      },
     );
     return {
       geminiSteps,
       openaiSteps,
-      anthropicSteps
+      anthropicSteps,
     };
-  }
+  },
 );
