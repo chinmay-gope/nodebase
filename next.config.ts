@@ -4,6 +4,15 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   serverExternalPackages: ["import-in-the-middle", "require-in-the-middle"],
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: "/workflows",
+        permanent: false,
+      },
+    ];
+  },
 };
 
 export default withSentryConfig(nextConfig, {
