@@ -90,14 +90,15 @@ function FormLabel({
   className,
   ...props
 }: React.ComponentProps<typeof LabelPrimitive.Root>) {
-  const { error, formItemId } = useFormField();
+  const { error } = useFormField();
+  const id = React.useId();
 
   return (
     <Label
       data-slot="form-label"
       data-error={!!error}
       className={cn("data-[error=true]:text-destructive", className)}
-      htmlFor={formItemId}
+      htmlFor={id}
       {...props}
     />
   );

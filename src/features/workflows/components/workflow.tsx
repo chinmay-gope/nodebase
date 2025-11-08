@@ -6,13 +6,13 @@ import {
   EntityPagination,
   EntitySearch,
 } from "~/components/entity-components";
+import { useEntitySearch } from "~/hooks/use-entity-search";
 import { useUpgradeModal } from "~/hooks/use-upgrade-modal";
 import {
   useCreateWorkflow,
   useSuspenseWorkflows,
 } from "../hooks/use-workflows";
 import { useWorkflowsParams } from "../hooks/use-workflows-params";
-import { useEntitySearch } from "~/hooks/use-entity-search";
 
 export const WorkflowsList = () => {
   const workflows = useSuspenseWorkflows();
