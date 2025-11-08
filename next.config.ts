@@ -2,6 +2,11 @@ import { withSentryConfig } from "@sentry/nextjs";
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+<<<<<<< HEAD
+=======
+  /* config options here */
+  serverExternalPackages: ["import-in-the-middle", "require-in-the-middle"],
+>>>>>>> f720000e98d9a85a8f3369cf2f51f1bb4a34f515
   async redirects() {
     return [
       {
@@ -11,7 +16,10 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+<<<<<<< HEAD
   devIndicators: false,
+=======
+>>>>>>> f720000e98d9a85a8f3369cf2f51f1bb4a34f515
 };
 
 export default withSentryConfig(nextConfig, {

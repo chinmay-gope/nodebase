@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import type { SearchParams } from "nuqs/server";
 import { Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
@@ -34,3 +35,10 @@ const WorkflowPage = async ({ searchParams }: Props) => {
 };
 
 export default WorkflowPage;
+=======
+const Page = () => {
+  return <div>Workflow Page</div>;
+};
+
+export default Page;
+>>>>>>> f720000e98d9a85a8f3369cf2f51f1bb4a34f515
