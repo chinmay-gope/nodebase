@@ -2,10 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import "./globals.css";
-<<<<<<< HEAD
-
-=======
->>>>>>> f720000e98d9a85a8f3369cf2f51f1bb4a34f515
 import { Toaster } from "~/components/ui/sonner";
 import { TRPCReactProvider } from "~/trpc/client";
 

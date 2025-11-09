@@ -1,10 +1,7 @@
 import { createAnthropic } from "@ai-sdk/anthropic";
 import { createGoogleGenerativeAI } from "@ai-sdk/google";
 import { createOpenAI } from "@ai-sdk/openai";
-<<<<<<< HEAD
 import * as Sentry from "@sentry/nextjs";
-=======
->>>>>>> f720000e98d9a85a8f3369cf2f51f1bb4a34f515
 import { generateText } from "ai";
 import { inngest } from "./client";
 
@@ -34,7 +31,7 @@ export const execute = inngest.createFunction(
           recordInputs: true,
           recordOutputs: true,
         },
-      },
+      }
     );
     const { steps: openaiSteps } = await step.ai.wrap(
       "openai-generate-text",
@@ -49,7 +46,7 @@ export const execute = inngest.createFunction(
           recordInputs: true,
           recordOutputs: true,
         },
-      },
+      }
     );
     const { steps: anthropicSteps } = await step.ai.wrap(
       "anthropic-generate-text",
@@ -64,12 +61,12 @@ export const execute = inngest.createFunction(
           recordInputs: true,
           recordOutputs: true,
         },
-      },
+      }
     );
     return {
       geminiSteps,
       openaiSteps,
       anthropicSteps,
     };
-  },
+  }
 );
